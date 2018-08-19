@@ -1,5 +1,4 @@
 # DataStructure_Argorithms
-this is a project about data structure and argorithms
 第一章节：排序
 一冒泡排序
 冒泡排序算法的原理如下：
