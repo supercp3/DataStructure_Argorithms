@@ -4,12 +4,18 @@ import select
 import insert
 import quick
 import merge
+import shell
+import heap
+import radix
 '''
-n=1:冒泡排序
-n=2:选择排序
-n=3:插入排序
-n=4:快速排序
-n=5:归并排序
+n=1:冒泡排序 稳定   O(n^2)
+n=2:选择排序 不稳定 O(n^2)
+n=3:插入排序 稳定   O(n^2)
+n=4:快速排序 不稳定 O(nlogn)
+n=5:归并排序 稳定   时间复杂度 O(nlogn),空间复杂度O(n)
+n=6:希尔排序 不稳定 O(n^3/2)-O(n^2)
+n=7:堆排序   不稳定 O(nlogn)
+n=8:基数排序 稳定   O(nlog(r)m)
 '''
 def run(n,testlist):
 	if n==1:
@@ -42,7 +48,24 @@ def run(n,testlist):
 		end=time.clock()
 		print("result:",res_merge)
 		print("merge_runtime:",end-start)
-
+	if n==6:
+		start=time.clock()
+		res_shell=shell.shell_sort(testlist)
+		end=time.clock()
+		print("result:",res_shell)
+		print("shell_runtime:",end-start)
+	if n==7:
+		start=time.clock()
+		res_heap=heap.heap_sort(testlist)
+		end=time.clock()
+		print("result:",res_heap)
+		print("heap_runtime:",end-start)
+	if n==8:
+		start=time.clock()
+		res_radix=radix.radix_sort(testlist)
+		end=time.clock()
+		print("result:",res_radix)
+		print("radix_runtime:",end-start)
 if __name__=="__main__":
 	testlist=[7,2,3,8,10,9,2]
 	run(1,testlist)
@@ -50,3 +73,6 @@ if __name__=="__main__":
 	run(3,testlist)
 	run(4,testlist)
 	run(5,testlist)
+	run(6,testlist)
+	run(7,testlist)
+	run(8,testlist)
